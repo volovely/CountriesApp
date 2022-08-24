@@ -17,8 +17,12 @@ struct UserDefaultsCountriesStorage: CountriesStorageApi {
   }
 
   func write(_ countries: [Country]) {
-    if let serialisedData = try? Json.encoder.encode(countries) {
-      userDefaults.set(serialisedData, forKey: key)
+    guard
+      let serialisedData = try? Json.encoder.encode(countries),
+      let stringToWrite = String(data: serialisedData, encoding: .utf8) else {
+      return
     }
+
+    userDefaults.set(stringToWrite, forKey: key)
   }
 }
