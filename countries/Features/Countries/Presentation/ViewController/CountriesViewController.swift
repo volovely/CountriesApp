@@ -6,6 +6,7 @@ class CountriesViewController: UIViewController {
   @IBOutlet var tableView: UITableView!
   @IBOutlet var tryAgainButton: UIButton!
   @IBOutlet var spinner: UIActivityIndicatorView!
+
   @IBAction func tryAgainTap(_ sender: UIButton) {
     viewModel.tryAagain()
   }
@@ -13,10 +14,11 @@ class CountriesViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    setUpViewModel()
     setupTableView()
+  }
 
-    spinner.hidesWhenStopped = true
-
+  private func setUpViewModel() {
     viewModel.view = self
     viewModel.enterScreen()
   }
