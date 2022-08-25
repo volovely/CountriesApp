@@ -2,6 +2,7 @@ import Foundation
 
 class CountriesViewModel {
   weak var view: CountriesView?
+  var state: CountriesState?
 
   private let getCountriesUseCase: GetCountriesUseCase
 
@@ -18,21 +19,19 @@ class CountriesViewModel {
   }
 
   private func fetchCountries() {
-    view?.render(
-      CountriesState.loading()
-    )
+    updateState(CountriesState.loading())
     Task {
       do {
         let countries = try await getCountriesUseCase.getCountries().value
-
-        view?.render(
-          CountriesState.success(countries: countries)
-        )
+        updateState(CountriesState.success(countries: countries))
       } catch let error as AppError  {
-        view?.render(
-          CountriesState.fail(error: error)
-        )
+        updateState(CountriesState.fail(error: error))
       }
     }
+  }
+
+  private func updateState(_ state: CountriesState) {
+    self.state = state
+    view?.notifyUpdateRequired()
   }
 }

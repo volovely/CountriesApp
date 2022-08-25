@@ -16,19 +16,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cv2-Lb-ptO">
-                                <rect key="frame" x="144" y="433" width="127" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Oe2-yF-ozR">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cv2-Lb-ptO">
+                                <rect key="frame" x="165" y="432.5" width="84" height="31"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Fetch Countries"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Try again"/>
                                 <connections>
-                                    <action selector="fetchCountriesTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b5W-Fc-MPk"/>
+                                    <action selector="tryAgainTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bJi-Iq-bWn"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="LIg-Zf-VYW">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Oe2-yF-ozR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="96y-TO-3TX"/>
+                            <constraint firstItem="cv2-Lb-ptO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="DbR-59-1fs"/>
+                            <constraint firstItem="LIg-Zf-VYW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MWe-Sv-SNF"/>
+                            <constraint firstItem="cv2-Lb-ptO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WVG-OV-bmt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Oe2-yF-ozR" secondAttribute="bottom" id="Wfb-PF-rgU"/>
+                            <constraint firstItem="Oe2-yF-ozR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sfa-At-NSo"/>
+                            <constraint firstItem="LIg-Zf-VYW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="wIe-g3-DfM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Oe2-yF-ozR" secondAttribute="trailing" id="xwL-pk-4tz"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="spinner" destination="LIg-Zf-VYW" id="pOf-xs-kx4"/>
+                        <outlet property="tableView" destination="Oe2-yF-ozR" id="9dG-MX-VKh"/>
+                        <outlet property="tryAgainButton" destination="cv2-Lb-ptO" id="9fx-Kj-uIV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
