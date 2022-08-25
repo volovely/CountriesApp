@@ -1,7 +1,7 @@
 import Foundation
 
-class CountriesListViewModel {
-  weak var view: CountriesListViewModelDelegate?
+class CountriesViewModel {
+  weak var view: CountriesView?
 
   private let getCountriesUseCase: GetCountriesUseCase
 
@@ -19,18 +19,18 @@ class CountriesListViewModel {
 
   private func fetchCountries() {
     view?.render(
-      CountriesListState.loading()
+      CountriesState.loading()
     )
     Task {
       do {
         let countries = try await getCountriesUseCase.getCountries().value
 
         view?.render(
-          CountriesListState.success(countries: countries)
+          CountriesState.success(countries: countries)
         )
       } catch let error as AppError  {
         view?.render(
-          CountriesListState.fail(error: error)
+          CountriesState.fail(error: error)
         )
       }
     }

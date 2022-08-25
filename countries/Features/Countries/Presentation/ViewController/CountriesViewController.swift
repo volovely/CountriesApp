@@ -22,7 +22,10 @@ class CountriesViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
   }
-
-
 }
 
+extension CountriesViewController: CountriesView {
+  func render(_ state: CountriesState) {
+    
+  }
+}

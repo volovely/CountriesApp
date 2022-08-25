@@ -38,5 +38,5 @@ protocol CountriesRemoteApi {
 
 protocol CountriesStorageApi {
   func read() -> [Country]?
-  func write(_: [Country]) -> Void
+  func write(_ countries: [Country])
 }
