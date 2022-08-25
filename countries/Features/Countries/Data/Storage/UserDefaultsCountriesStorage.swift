@@ -1,6 +1,6 @@
 import Foundation
 
-struct UserDefaultsCountriesStorage: CountriesStorageApi {
+struct UserDefaultsCountriesStorageApi: CountriesStorageApi {
   let key = "cached_countries"
 
   let userDefaults = UserDefaults.standard

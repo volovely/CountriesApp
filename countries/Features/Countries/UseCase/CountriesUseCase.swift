@@ -1,6 +1,10 @@
 import Foundation
 
-struct GetCountriesUseCase {
+protocol GetCountriesUseCase {
+  func getCountries() async throws -> FetchResult<[Country]>
+}
+
+struct GetCountriesUseCaseImpl: GetCountriesUseCase {
   private let countriesRepository: CountriesRepository
 
   init(countriesRepository: CountriesRepository) {

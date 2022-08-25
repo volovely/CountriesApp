@@ -1,6 +1,10 @@
 import Foundation
 
-struct CountriesRepository {
+protocol CountriesRepository {
+  func getCountries() async throws -> FetchResult<[Country]>
+}
+
+struct CountriesRepositoryImpl: CountriesRepository {
   private let remoteApi: CountriesRemoteApi
   private let storageApi: CountriesStorageApi
 
